@@ -26,14 +26,12 @@ public class PostMovementController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Arrival processed successfully");
     }
 
-
     @PostMapping("/departure")
     public ResponseEntity<String> departure(@RequestParam Long postItemId, @RequestBody PostOffice postOffice) {
         logger.info("Handling departure for postItemId: {} at post office: {}", postItemId, postOffice);
         postMovementService.departure(postItemId, postOffice);
         return ResponseEntity.status(HttpStatus.CREATED).body("Departure processed successfully");
     }
-
 
     @PostMapping("/delivery")
     public ResponseEntity<String> delivery(@RequestParam Long postItemId, @RequestBody PostOffice postOffice) {

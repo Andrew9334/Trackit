@@ -34,4 +34,9 @@ public class ExceptionInfoHandler {
                 .collect(Collectors.toList());
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(MailNotFoundException.class)
+    public ResponseEntity<String> handleMailNotFoundException(MailNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }

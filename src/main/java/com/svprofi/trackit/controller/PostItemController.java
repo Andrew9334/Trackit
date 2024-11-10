@@ -60,11 +60,5 @@ public class PostItemController {
         logger.info("Получен почтовый элемент с ID: {}", id);
         return ResponseEntity.ok(postItem);
     }
-
-    @ExceptionHandler(MailNotFoundException.class)
-    public ResponseEntity<String> handleMailNotFoundException(MailNotFoundException ex) {
-        logger.error("Ошибка: {}", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-    }
 }
 
